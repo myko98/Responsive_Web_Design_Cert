@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+
+<!--
+@Creating Paragraphs
+- all HTML tags are written in lowercase
+
+<p>blah blah blah blah</p>
+
+@"main" tag helps search engines find main content of page
+
+<main
+    <h1>Hi</h1>
+</main>
+
+@Adding Images
+<img src="your_image" alt="some text">
+- alt attribute shows text when image fails to load
+- for now only know how to put local images 
+
+<img src="/home/myko98/freecodecamp/HTML5/FCC_HTML5/images/cat.jpeg" alt="">
+
+@External Anchor Elements
+- links to content outside of webpage
+- blue clickable links
+- any text in href without protocol (HTTP,HTTPS,FILE,SSH,SSL,FRP) is assumed to be a relative path
+- that's why if you just put google.com, it won't actually go there
+
+<a href="https://google.com">text displayed</a>
+
+@Internal Anchor Elements
+- links to content within webpage, e.g pulls you to different section at the bottom
+- instead of referencing a link in href, you reference a # and id name
+- id name is an attribute that uniquely describes an element
+- in this example I have 2 paragraphs, lerum itsum to create space so that the anchor tag can pull down to paragraph with id "paragraph5"
+
+<a href="#paragraph5">Paragraph 5</a>
+<p>Cras tempus tortor vitae purus finibus luctus. Vestibulum laoreet mauris leo, ut vehicula orci fermentum sed. Nam orci nisi, pretium quis metus id, vehicula suscipit erat. Nullam vel elit pellentesque, pellentesque augue et, rhoncus erat. Vestibulum posuere tellus leo, laoreet venenatis urna porta vitae. Fusce turpis magna, faucibus ac feugiat vitae, ultricies eu massa. Nunc tincidunt sollicitudin tellus ut auctor. Mauris scelerisque, dolor vel cursus vulputate, sapien dui rutrum augue, eget tempor erat sem congue enim. Nullam ullamcorper ornare leo. Praesent quis efficitur sapien, ut vehicula lectus. In imperdiet laoreet faucibus. Suspendisse sed turpis id lacus porttitor consectetur vitae id eros. In fermentum dictum ante. Vestibulum ac sagittis purus. </p>
+<p id=paragraph5>this is paragraph 5</p>
+
+@Nest an Anchor Element within a Paragraph
+
+<p>click <a href="https://google.com">here</a> to go to google.com</p>
+
+@Making Dead links using hash symbol
+- used in testing elements before you know where they will link to
+- replace href value with "#"
+
+<a href=#>testing link</a>
+
+@Turning an image into a link
+- you can make elements into links by nesting them within an <a> element
+- makes cat image go to google.com
+
+<a href="https:/google.com"><img src="/home/myko98/freecodecamp/HTML5/FCC_HTML5/images/cat.jpeg"></a>
+
+@Create a Bulleted Unordered List
+- ul -> unordered list
+
+<ul>
+    <li>buns</li>
+    <li>sausages</li>
+</ul>
+
+@Create an Ordered List
+- ol -> ordered list
+- has numbers in the list
+
+<ol>
+    <li>buns</li>
+    <li>sausages</li>
+</ol>
+
+@Create a textfield
+- like <img> element, <input> is self closing (no need to </input> in the end, just >)
+
+<input type="text">
+
+@Add placeholder text to a text field
+- add placeholder attribute into input element
+<input type="text" placeholder="plz write here">
+
+@Create a Form Element
+- forms that submit data to a server
+- action attribute is where data will go to
+- this code will send input from user to form
+
+<form action="website where data should be sent"><input type="text"></form>
+
+@Add a submit button to a form
+
+<button type="submit"> this button will submit a form</button>
+
+@Use HTML5 to require a field
+- adding the attribute "required" to an element makes it so that you have to write something or else it won't submit
+- when pressing submit button with input element has nothing -> will prompt message please fill in the field
+<form>
+    <input type="text" placeholder="enter something plz" required>
+    <button type="submit">Submit</button>
+</form>
+
+@Create a set of radio buttons
+- radio buttons are a type of input
+- each radio button will be nested within its own label element
+- think of label element as a sidekick - the sidekick is connected to the main character, whichever you choose  both will receive the interaction
+- you group a set of radio buttons by giving them all the same name attribute
+- this way if you select another button, all other buttons will deselect
+
+- it is best practice to set a 'for' attribute on the label element that matches value of 'id' attribute of the input element
+- allows assistive tech to create linked relationship between label and the child input element
+
+<label for = "green">
+    <input id="green" type="radio" name="colour">green
+</label>
+
+<label for = "blue">
+    <input id="blue" type="radio" name="colour">blue
+</label>
+
+<label for = "red">
+    <input id="red" type="radio" name="colour">red
+</label>
+
+@Create a set of checkboxes
+- checkboxes are a type of input
+- same as radiobuttons, by associating a checkbox with a label it will automatically associate the checkbox input with the label element surrounding it'
+- should also follow best practice like in radio buttons
+
+<label for="chicken">
+    <input id="chicken" type="checkbox" name="meat">chicken
+</label>
+
+<label for="beef">
+    <input id="beef" type="checkbox" name="meat">beef
+</label>
+
+<label for="pork">
+    <input id="pork" type="checkbox" name="meat">pork
+</label>
+
+@Use 'value' attribute with radiobuttons and checkboxes
+- using value attribute within input elements allows users to actually send data from the name value
+- if you omit the value attribute, the submitted data uses default value, which is 'on' or 'off'
+
+<label for="chicken">
+    <input id="chicken" valu="chicken" type="checkbox" name="meat">chicken
+</label>
+
+- by selecting this checkbox, data sent will be meat = chicken (name = value)
+
+@Check radiobuttons and checkboxes by default
+- by adding 'checked' attribute, can select a default option
+
+<label for="chicken">
+    <input id="chicken" type="checkbox" name="meat" checked>chicken
+</label>
+
+<label for="beef">
+    <input id="beef" type="checkbox" name="meat">beef
+</label>
+
+<label for="pork">
+    <input id="pork" type="checkbox" name="meat">pork
+</label>
+
+@Nest elements with 'div' element
+- known as division element, allows for general purpose container for other elements
+- probably most used HTML element
+- <div> stuff </div>
+
+<div>
+    <label for="chicken">
+        <input id="chicken" type="checkbox" name="meat" checked>chicken
+    </label>
+
+    <label for="beef">
+        <input id="beef" type="checkbox" name="meat">beef
+    </label>
+
+    <label for="pork">
+        <input id="pork" type="checkbox" name="meat">pork
+    </label>
+</div>
+
+@Declaring doctype of HTML document
+- should be included in every HTML document
+- tells browser which HTML your page is using, for HTML5 we use <!DOCTYPE html>
+- rest of code should be wrapped in html tags <html> stuff </html>
+- basic structure
+
+<!DOCTYPE html>
+<html>
+    <h>code goes here</h>
+</html>
+
+@Define head and body of HTML document
+- adds another level of organization 
+- any markup info about page would go to head tag
+- any markup with content of page (what users see) goes into body tag
+
+<!DOCTYPE html>
+<html>
+    <head>
+         meta data elements
+    </head>
+    <body>
+        page contents
+    </body>
+</html>
+-->
+</html>
+
+

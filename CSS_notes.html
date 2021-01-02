@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+
+notes containing a * are important!!
+
+@Introduction to Basic CSS
+- Cascading Style Sheets tell browser how to display text and other content written in HTML
+- allows you to control: color, fonts, position, spacing, sizing, decorations, transitions
+- 3 main ways to apply CSS styling
+    1. apply inline styles direction to HTML elements with 'style' attribute
+    2. place CSS rules within 'style' tags in an HTML document
+    3. write CSS rules in an external sheet, then reference that file in the HTML document
+
+    3 is what most devs use as it improves readability and reusability
+
+idea of CSS is that you use a selector to target an HTML element in the DOM (Document Object Model)
+and then apply variety of attributes to that element to change how it's displayed
+
+@Change the color of text
+- to change color of an element, set the 'color' style property to whatever color you want
+- *it is good practice to end inline style declarations with a ;*
+
+<h1 style="color: blue;">Hello World</h1>
+
+@Use CSS Selectors to style elements
+- create a style block before HTML code
+- you can then create 'CSS selectors' that allow you to manipulate HTML elements
+- in this example style block contains h1 selector that changes all h1 elements to have red text
+
+<style>
+    h1 {
+        color: red;
+    }
+</style>
+
+<h1>hi</h1>
+
+@Style multiple elements with a CSS class
+- create a class in style sheet by adding '.' in front of name
+- class can then be used on multiple HTML elements by using 'class' attribute in HTML tag
+- 'red_text' used on both h1 and p element to make it have red text
+
+<style>
+    .red_text {
+        color: red;
+    }
+</style>
+
+<h1 class="red_text">oi oi</h1>
+<p class="red_text">beep beep</p>
+
+@Changes related to font
+- font-size: changes font size
+- font-family: changes font
+
+<style>
+    .change_font {
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+</style>
+
+@Import a Google Font
+- Google Fonts is free library that you can use CSS by referecing the font's URL
+- need link href to reference
+- using 'Lobster' font from Google Fonts
+- can provide additional fonts after if font in front does not work
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<style>
+    .change_font {
+        font-family: Lobster, sans-serif;
+    }
+</style>
+
+<h1 class="change_font">Lobster</h1>
+
+@Size Images
+- change size of images
+- can apply class to non image elements, but it wont do anything!
+
+<style>
+    .change_image {
+        width: 500px
+    }
+</style>
+
+<img src="cat.jpeg" alt="cat pic" class="change_image">
+<h1 class="change_image">hi</h1>
+
+@Add borders around elements
+- adds border around elements (both pictures and text)
+
+<style>
+    .change_border {
+        border-color: red;
+        border-width: 10px;
+        border-style: solid;
+    }
+</style>
+
+<img src="cat.jpeg" alt="cat pic" class="change_border">
+<h1 class="change_border">hi</h1>
+
+@Add rounded corners with border radius
+- makes corners rounded by setting radius
+
+<style>
+    .change_border {
+        border-color: red;
+        border-width: 10px;
+        border-style: solid;
+        border-radius: 10px
+    }
+</style>
+
+<img src="cat.jpeg" alt="cat pic" class="change_border">
+<h1 class="change_border">hi</h1>
+
+@Make circular images with border-radius
+- creates circular border
+- by changing value from px to %, creates circular image
+
+<style>
+    .change_border {
+        border-color: red;
+        border-width: 10px;
+        border-style: solid;
+        border-radius: 50%
+    }
+</style>
+
+<img src="cat.jpeg" alt="cat pic" class="change_border">
+<h1 class="change_border">hi</h1>
+
+@Give background color to a div element
+- sets background color of an HTML element
+
+<style>
+    .change_background {
+        background-color: blue;
+    }
+</style>
+
+<img src="cat.jpeg" alt="cat pic" class="change_background">
+<h1 class="change_background">hi</h1>
+
+@Set id of an element
+- can set an 'id' attribute to any HTML attribute
+- best practice to only have unique 'id' for each attribute
+
+<h1 id="first_h1">hi</h1>
+
+@Use id attribute to style an element
+- the id of a HTML element can be used to create a CSS selector in style sheet
+- start id with #
+- created #first_h1 in style sheet to change element with id="first_h1" to have blue background
+
+<style>
+    #first_h1 {
+        background-color: blue;
+    }
+</style>
+
+<h1 id="first_h1">hi</h1>
+
+@Adjust padding of an element
+- all HTML elements are essentially little rectangles
+- *3 important properties control space that surrounds HTML element: padding, border, margin*
+    - padding controls amount of space between element's content and it's border
+    - in this example, increasing padding increases space between h1 text and border
+
+<style>
+    #first_h1 {
+        border-width: 10px;
+        border-color: red;
+        border-style: solid;
+        background-color: blue;
+        padding: 50px;
+    }
+</style>
+
+<h1 id="first_h1">hi</h1>
+
+@Adjust margin of an element
+- difference between margin and padding:
+    https://stackoverflow.com/questions/5958699/difference-between-margin-and-padding
+    https://blog.hubspot.com/website/css-margin-vs-padding
+- margin controls space between element's border and surrounding elements
+
+<style>
+    #first_h1 {
+        border-width: 10px;
+        border-color: red;
+        border-style: solid;
+        background-color: blue;
+        margin: 100px
+    }
+</style>
+
+<h1 id="first_h1">hi</h1>
+
+@Add negative margin to an element
+- if you set an element's margin to negative value, the element will grow larger
+
+<style>
+    #first_h1 {
+        border-width: 10px;
+        border-color: red;
+        border-style: solid;
+        background-color: blue;
+        margin: -5px
+    }
+</style>
+
+<h1 id="first_h1">hi</h1>
+
+@Use clockwise notation to specify the margin of an element
+- can do margin: 10px 10px 10px 10px
+- can do padding: 10px 10px 10px 10px
+- sets top right bottom left margin/padding
+
+@Use attribute selectors to style elements
+- [attr=value] is attribute selector that can be used to change HTML attributes in elements
+
+<style>
+    [type="radio"] {
+        margin: 10px 20px 10px 10px
+    }
+</style>
+
+<label>
+    <input type="radio"></input>hello
+</label>
+
+@Understand absolute vs relative units
+- pixels (px) is one type of unit you can use in css, there are a lot more
+- 2 main types of length units are absolute and relative
+    - Absolute units tie to physical units of length (e.g. in and mm refer to inch and milimeter)
+
+    - Relative units (em or rem), are relative to another length value
+    - e.g. em is based on the size of an element's font
+    - if you use it to set the 'font-size' property itself, it's relative to the parent's font-size
+*need to do more research on this **
+
+@Style HTML body element
+- every HTML page has a body element
+- can give it a background color
+-
+<style>
+    body {
+        background-color: black;
+    }
+</style>
+
+@Inherit Styles from body element
+- by styling body element, all other elements will inherit the body's element styles!
+
+@Override Styles in Subsequent CSS
+- it doesn't matter which order the classes are listed in the HTML element
+- the order of the class declarations in the <style> section is what determines priority
+- the lower declaration will always take precedence over the above
+- in this example blue will take prio because it is declared lower than .pink class
+
+<style>
+
+    .pink {
+        color: pink;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+
+<h1 class="pink blue"> hi</h1>
+
+@Override class declarations by styling ID attributes
+- id attributes will always take prio over class declarations
+
+<style>
+
+    #orange {
+        color: orange;
+    }
+    .pink {
+        color: pink;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+
+<h1 id="orange" class="pink blue">hi</h1>
+
+@Override class declarations with inline styles
+- *inline styles override ALL CSS declarations in style element*
+
+<style>
+
+    #orange {
+        color: orange;
+    }
+    .pink {
+        color: pink;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+
+<h1 style="color: green;" id="orange" class="pink blue">hi</h1>
+
+@Override all other styles by using !important
+- by adding !important to whichever element, it will override all other style changes
+
+<style>
+
+    #orange {
+        color: orange ;
+    }
+    .pink {
+        color: pink !important;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+
+<h1 style="color: green;" id="orange" class="pink blue">hi</h1>
+
+@Use hex code for specific colours
+- in CSS we use 6 hexadecimal digits (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f) to represent colours
+- RGB code
+
+e.g. black = #000000
+
+@Use hex code to mix colours
+- hex codes use 6 digits, 2 for red, 2 for green, 2 for blue (RGB)
+- digit 0 represents lowest number of hex code, represents a complete absence of color
+- digit F is highest, represents maximum possible brightness
+
+<style>
+    .blue {
+        color: rgba(255, 0, 0, 0);
+    }
+</style>
+
+<h1 class="blue">hi</h1>
+
+@Use abbreviated hex code
+- can shorten from 6 digits to 3 digits to represent color
+- shortened form gives 1 digit to red, green, and blue
+
+e.g. reg = #F00
+
+@Use RGB values to color elements
+- can use RGB values instead of hex codes
+- e.g. black = rgb(0,0,0) white = rbg(255,255,255)
+- choose numbers between 0-255 (16*16)
+
+@Create a custom CSS variable
+- to create CSS variable, give name with 2 hyphens in front
+e.g. --penguin-skin: gray;
+- this gives the variable 'penguin-skin' the color gray
+
+@Use a custom CSS variable
+- can assign CSS variable by referencing name you gave it
+- make sure '--' is written when you want to call the variable, else wont work!
+
+<style>
+   
+    h1 {
+        --asdf: green;
+        color:var(--asdf);
+    }
+</style>
+
+<h1>hi</h1>
+
+@Attach fallback value to a css variable
+- by attaching another varibale after the first one, if the first one fails then browser will use the one after
+
+<style>
+   
+    h1 {
+        --asdf: green;
+        color:var(--asdff,red);
+    }
+</style>
+
+<h1>hi</h1>
+
+@Improve compatibility with browser fallbacks
+- browsers ignore any properties it doens't support (e.g. IE ignores all CSS varaibles)
+- generally good practice that if you do want to provide browser fallback, best go provide another more
+- widely supported value immediately before your declaration
+- that way older browser will have something to fall back on, while new browser will interpret whatever declaration comes later in the console
+
+<style>
+    :root {
+        --red: red;
+    }
+    .red-box {
+        background:red;
+        background: var(--red);
+        height:100px;
+        width:100px;
+    }
+</style>
+<div class="red-box"></div>
+
+@Inherit CSS variables
+- when a css var is created, it can be used inside the selector where it's created, as well as any of that selectors' descendants
+- CSS vars are inherited
+- ':root' is a pseudo class selector that matches the root element of the doc, usually HTML element
+- by creating vars in :root, they will be available globally and can be accessed by any other selector in the style sheet
+
+@Change a variable for a specific area
+- when you create variables in :root, they will set the value of that variable for the whole page
+- you can override those variables by declarining them within a specific element
+- --my_colour is red is :root, but if i define another --my_colour in the body, it takes the value of that my_colour instead
+
+<style>
+    :root {
+        --my_colour: red;
+    }
+
+    body {
+        --my_colour: blue;
+        background: var(--my_colour)
+    }
+</style>
+
+@Use a media query to change a variable
+- when your screen is smaller or larger than 'media query' break point, you can change value of var and it will
+- apply its style wherever it's used
+
+<style>
+    :root {
+        --my_colour: red;
+    }
+
+    @media (max-width: 350px) {
+        :root {
+            --my_colour: blue;
+        }
+    }
+
+    body {
+        background: var(--my_colour)
+    }
+</style>
+-->
+</html>

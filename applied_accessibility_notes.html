@@ -1,0 +1,80 @@
+<!--
+Applied Accessibility Notes
+Created 2021-01-04
+-->
+
+<!DOCTYPE html>
+<!--
+- some users rely on assistive tech such as screen reader/voice recognition
+- some use keyboard to navigate through site
+- important to create web pages that are accessible to a variety of users
+
+3 general concepts
+    1. have well organized code that uses appropriate mark up
+    2. ensure text alternatives exist for non-text and visual content
+    3. create easily navigated page thats keyboard friendly
+
+@add a text alternative to image for visually imparied
+<img src="image" alt="image description">
+- if <img> element is enclosed by another element that describes the image, then set alt=""
+
+@Use headings to show hierarachical relationships of content
+- its important for heading tags (h1 - h6) to have semantic meaning and relate to each other, not merely for their size values
+- def semantic: tag you use around content indicates the type of information it contains
+- e.g. if you use h2 tag which then has subheadings, it is better to use h3 tags instead of h4 tags
+- you can then adjust h3 tags to fit proper sizing you want
+- each page should have only one h1 element (main subject of your content)
+- heading elements are used in part by search engines to understand topic of page
+
+@Jump straight to the content using the main element
+- html5 introduces new elements that help with accessibility features: 'main','header','footer','nav','article','selection'
+- renders visually like div element
+- using them appropriate gives additional meaning to markup
+- tag name alone can indicate type of info it contains -> adds semantic meaning to content
+    - assesstive tech can access this info to provide better page summary or nav options
+
+'main' element is used to wrap main content
+- should only be one per page
+- should surround info thats related to central topic of page
+
+@wrap content in 'article' element
+- 'article' is a sectioning element, used to wrap independent, self-contained content
+- good for blog entries, forum posts, news articles
+
+    Note about <selection> and <div>
+        - article is for standalone content
+        - selection is for grouping thematically related content
+        - can be used within each other as needed
+        - think a book as article and each chapter is a selection
+        - when theres no relationship between groups of content, use div
+
+@Make screen reader navigation easier with <header> landmark
+- 'header' tag used to wrap intro info or nav links for its parent tag
+- has landmark feature like <main>, allowing assistive tec to quickly navigate to that content
+- header is meant for use in the body tag, and is diff from <head> element found before the body tag
+- header != head !!!
+
+@nav landmark
+- contains landmark feature that helps screen reader navigation
+- 'nav' element used to wrap around main navigation links to your page
+
+@footer landmark
+- contains landmark feature that helps screen reader navigation
+- used to contain copyright info or links related to doc at THE BOTTOM OF A PAGE
+
+@Improve accessibility of audio content with <audio> element
+- creates audio play bar
+
+e.g
+
+<audio id="meowClip" controls>
+  <source src="audio/meow.mp3" type="audio/mpeg" />
+</audio>
+
+@add accessible date picker
+- can be done by setting type="date" for <input> element
+- <input type="date" id="pickdate" name="date">
+
+
+-->
+<html>

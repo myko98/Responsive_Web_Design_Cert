@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Applied Visual Design Notes
+created: 2021-01-03
+    
+Visual Design covers a lot of topics...typography, color theory, graphics, animations and page layout
+visual design can influence its presentation and user experience
+HTML gives structure and semantics to a page's contents, CSS controls layout and appearance of it
+
+@Create visual balance using 'text-align' property
+- can take different values
+- 'text-align: justify;' causes all lines of text except last line to meet left and right edges of the line box
+- 'text-align: center;' centers text
+- 'text-align: right;' right aligns text
+- 'text-align: left;' left aligns text (default)
+
+<style>
+    h4 {
+        text-align: right;
+    }
+</style>
+
+<h4>hi</h4>
+
+@Adjust width/height of an element using width (height) property
+- values can be given in relative (e.g. em) or absolute units (e.g. px) or as a percentage of its containing parent element
+
+<style>
+    .resize {
+        width: 500px;
+        height: 100px;
+    }
+</style>
+
+<img src="cat.jpeg" class="resize">hi</h4>
+
+@Tags to change text style
+- <strong>text</strong> bolds text wrapped inbetween
+    - <strong> tag applies 'font-weight: bold;'' to that element
+
+<p>The <strong>apple</strong> is bolded</p>
+
+- <u>text</u> underlines text wrapped inbetween
+    - applies 'text-decoration: underline;' to the element
+
+- <em>text</em> italicize text wrapped inbetween
+    - applies 'font-style: italic;' to the element
+
+- <s>text</s> strikethroughs (crossing out) text wrapped inbetween
+    - applies 'text-decoration: line-through;' to the element
+
+@Create a horizontal line using 'hr' element
+- used to seperate groups of content
+
+<p> there is a hr tag under this text</p>
+<hr>
+
+@Adjust background color preperty of text
+- another way to set background-color is using a rgba() function within 'background-color' property
+- rgba stands for red, green, bllue, alpha (level of opacity)
+    - RGB values can range from 0-255
+    - alpha values if from 0-1 (0 is clear, 1 is fully opaque or solid)
+
+<style>
+  h4 {
+    text-align: center;
+    background-color: rgba(45, 45, 45, 0.1);
+    padding: 10px;
+  }
+</style>
+<h4>This has a background colour</h4>
+
+@Adjust the size of a header vs a paragraph tag
+- 'font-size' property can be used to change size of text
+
+<style>
+  h4 {
+    font-size: 27px;
+  }
+</style>
+<h4>font size increased</h4>
+
+@Add a box-shadow to a card-like element
+- box-shadow property applies one or more shadows to an element
+- takes value for
+    - 'offset-x' (how far to push shadow hori from element)
+    - 'offset-y' )how far to push shadow vert from element)
+    - 'blur radius'
+    - 'spread-radius'
+    - 'color'
+
+e.g. box-shadow: box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+@Decrease opacity of an element
+- 'opacity' property in CSS can be used to adjust opacity (1 is solid, 0 is transparent)
+
+@Use text-transform property to make text uppercase
+- 'text-transform' property used to change appearance of text
+    - 'text-transform: lowercase'
+    - 'text-transform: uppercase'
+    - 'text-transform: capitalize' capitalize first letter of each word
+    - 'text-transform: initial' use default value
+    - 'text-transform: inherit' use the text-transform value from the parent element
+    - 'text-transform: none' use original text
+
+@font weight
+- thickness of text?
+- note font-weight is just a number, no units needed
+
+<style>
+  h1 {
+    font-size: 68px;
+    font-weight: 800;
+  }
+</style>
+
+<h1>qifhoiefqwf</h1>
+
+@Set line-height of paragraphs
+- changes spacing height between every line
+
+<style>
+  p {
+    font-size: 16px;
+    line-height: 50px
+  }
+</style>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+</p>
+
+@Adjust hover state of an anchor tag
+- a pseudo class is a keyword that can be added to selectors, in order to select a specific state of the element
+- e.g. styling of an anchor tag can be changed for its hover state using '':hover' after the selector
+- ***so many applications for this, make sure to learn other pseudo class states***
+
+<style>
+  a {
+    color: #000;
+  }
+  a:hover {
+    color: blue
+  }
+</style>
+
+<a href="https://freecatphotoapp.com/" target="_blank">CatPhotoApp</a>
+
+@Change an element's relative position  (IMPORTANT LESSON)
+- CSS treats each element as its own box (CSS Box Model)
+- block level items (headings, paragraphs, divs) automatically start on new line
+- inline items (images, spans(?)) sit within surrounding content
+- default layout of elements in this way is called 'normal flow' of a document
+
+- css offers position properties to override it
+
+when 'position' is set to relative, it allows you to move the element relative to its current position
+- can move left/right, top/bottom in absolute/relative units
+- changing element's position does not remove it from the normal flow, meaning elements around it still behave as if that item were in its default position
+
+<style>
+  h2 {
+    position: relative;
+    top:15px
+
+  }
+</style>
+<body>
+  <h1>On Being Well-Positioned</h1>
+  <h2>Move me!</h2>
+  <p>I still think the h2 is where it normally sits.</p>
+</body>
+
+@Move a relatively positioned element with CSS offsets
+- offsets of 'top','bottom','left','right' tell browser how far to offset an item 
+- you're offsetting an element AWAY from a given spot, which moves element away from the reference side
+**play around with the offsets to get an idea**
+
+@Lock an element to its parent with absolute positioning (NOT SURE WHAT THIS DOES)
+- changing position to 'position: absolute' removes the element from the normal flow, so surrounding items ignore it
+- CSS offset properties (top,bottom, right, left) are used to adjust position
+- will be locked relative to its closest positioned ancestor
+    - if you forget to add a position rule to parent item, the browser will keep looking up the chain, ultimately default to <body> tag
+
+@Lock an element to the browser window with fixed positioning
+- 'position: fixed;' is a type of absolute positioning that locks element relative to browser window
+- other items no longer realize where it's positioned, which may require some layout adjustments
+- one key diff between 'fixed' and 'absolute' is that element with fixed position won't move when user scrolls
+- think horizontal legend in old school sites
+
+@Push Elements left or right with float property
+- floating elements are removed from the normal flow of a document and pushes elements either left or right
+- commonly used with 'width' property to specify how much horizontal space the floated elements require
+
+<head>
+  <style>
+    #left {
+      float: left;
+      width: 40%;
+    }
+    #right {
+      float: right;
+      width: 40%;
+    }
+    aside, section {
+      padding: 2px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome!</h1>
+  </header>
+  <section id="left">
+    <h2>Content</h2>
+    <p>Good stuff</p>
+  </section>
+  <aside id="right">
+    <h2>Sidebar</h2>
+    <p>Links</p>
+  </aside>
+</body>
+
+@Change the position of overlapping elements with z-index property
+- when elements overlap (e.g. using position: absolute, relative, fixed, sticky), element coming later 
+- will by default be on top of the other elements
+- 'z-index' property can specify the order of which elements are on top and which are under
+- 'z-index: integer value' the higher the integer, the higher the element will stack over lower values
+
+@Center an element horizontally using the margin property
+- 'maring: auto' sets an element to the  center horizontally
+
+@Adjust hue/tone of a Color
+- introduction to hsl() function which stands for: hue, saturation and lightness
+  - Hue
+    - think of line with red on left, middle is green and blue is right
+    - hue is a continium of color
+    - value of 0 - 360
+
+  - Saturation
+    - amount of gray in a color
+    - full saturated has no gray, minimally saturated is completely gray
+    - values of 0-100%
+
+  - Lightness
+    - amount of white/black in a color
+    - values of 0-100% (0% being black, 100% is white, 50% is normal)
+
+e.g. background-color: hsl(0,100%,50%) gives red
+
+@Create a gradual CSS linear gradient
+- create gradients by accessing 'background' property's 'linear-gradient' function
+
+e.g. background: linear-gradient(gradient_direc, color 1, color 2, color 3, ...);
+
+- first argument takes degrees (0-365deg)
+  - 0 deg is horizontal divide -> 90deg is vertical line
+  - increasing turns line clockwise
+
+@Use a css linear gradient to create a striped element
+- 'repeating-linear-gradient()' function repeats the specified gradient pattern
+- takes arguments of (deg, c1,c2,c3,c4,..)
+- it creates the gradients in pairs (c1,c2), (c3,c4) so on
+- if you want solid colors just make the pair the same color
+- e.g. this example has same color pairs, so we have stripe pattern
+
+<style>
+
+  div{
+    border-radius: 20px;
+    width: 70%;
+    height: 400px;
+    margin:  50 auto;
+    background: repeating-linear-gradient(
+      45deg,
+      yellow 0px,
+      yellow 40px,
+      black 40px,
+      black 80px
+    );
+  }
+</style>
+
+<div></div>
+
+@adding a background image
+- background property also has a 'url("link")' function where you can set the background to the url pic
+
+@Use CSS 'transform' scale property to change size of an element
+- e.g. set ball2 class to be 1.5 scale
+- first creates ball class using width, height, margin, position
+- sets background color
+- border-radius sets the circle shape
+<style>
+  .ball {
+    width: 40px;
+    height: 40px;
+    margin: 50 auto;
+    position: fixed;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    border-radius: 50%;
+  }
+  #ball1 {
+    left: 20%;
+  }
+  #ball2 {
+    left: 65%;
+    transform: scale(1.5)
+
+  }
+
+
+</style>
+
+<div class="ball" id= "ball1"></div>
+<div class="ball" id= "ball2"></div>
+
+@Use the CSS transform scale property to scale an element on hover
+- when used with pseudoclass like ':hover'. transform can add interactivity to elements
+
+e.g
+
+p:hover {
+  transform: scale(2.1);
+}
+
+@Use CSS transform to skew an element along X-Axis/Y-Axis
+- skewX() is a function of transform property which skews selected element along X axis by a given degree
+
+p {
+  transform: skewX(-32deg);
+}
+
+- skewY() does so in the Y axis
+
+@create more complex shape using CSS and HTML
+- '::before and ::after' are pseudo-elements (different from pseudo-class like :hover)
+- note the double colons
+- this pseudo element is useful to add something before/after a selected element
+e.g making a heart
+
+<style>
+  .heart {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-45deg);
+  }
+  .heart::after {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 25px;
+  }
+  .heart::before {
+    content: "";
+    background-color: pink;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0px;
+  }
+</style>
+<div class="heart"></div>
+
+@Keyframes and animation properties
+- 'animation-name' property sets name of the animation, which later uses @keyframes to tell CSS which rules go to which animations
+- 'animation-duration' property sets animation length
+- @keyframes specify what happens during this period for specific frames (ranging from 0-100%)
+e.g changes div container colors from blue->green->yellow
+<style>
+  div {
+    height: 40px;
+    width: 70%;
+    background: black;
+    margin: 50px auto;
+    border-radius: 5px;
+  }
+
+  #rect {
+    animation-name: rainbow;
+    animation-duration: 4s;
+  }
+  
+  @keyframes rainbow {
+    0% {
+      background-color: blue;
+    }
+    50% {
+      background-color: green;
+    }
+    100% {
+      background-color: yellow;
+    }
+  }
+</style>
+<div id="rect"></div>
+
+@Use CSS animation to change hover state of button
+- can use @keyframes to change color of a button in hover state
+
+<style>
+  button {
+    border-radius: 5px;
+    color: white;
+    background-color: #0F5897;
+    padding: 5px 10px 8px 10px;
+  }
+
+  button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+  }
+
+  @keyframes background-color {
+    100% {
+      background-color: #4791d0;
+    }
+  }
+</style>
+
+<button>Register</button>
+
+@Modify fill mode of an animation
+- note in above example animation resets after 500ms (since animation-duration: 500ms)
+- What if you wanted button to stay highlighted?
+
+- can be done by setting 'animation-fill-mode' property to 'forwards'
+  - specifies style applied to an element when animation has finished (in this case, keep forward)
+
+<style>
+  button {
+    border-radius: 5px;
+    color: white;
+    background-color: #0F5897;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
+  @keyframes background-color {
+    100% {
+      background-color: #4791d0;
+    }
+  }
+</style>
+<button>Register</button>
+
+- same as example above but added animation-fill-mode property
+
+@@Create movement using CSS animation
+- within the frames can use 'offset' properties (top, bottom, left, right) to move elements
+
+@Create fading by using 'opacity'
+- 'opacity' property takes value between 0-1
+- used in frames of @keyframes to set fading
+
+@Set animation count
+- animation-iteration-count: integer
+- sets how many times animation happens
+- can be set 'infinite'
+
+@Skiped bezier curve stuff...will learn later when I actually need it
+-->
+
+
+</html>

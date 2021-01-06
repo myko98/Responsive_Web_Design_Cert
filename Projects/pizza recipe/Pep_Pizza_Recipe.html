@@ -1,0 +1,143 @@
+<!--
+Pizza Recipe Webpage
+    recipe copied: https://www.allrecipes.com/recipe/240376/homemade-pepperoni-pizza/
+    created: 2021-01-02
+    finished: 2021-01-03
+
+    Journal:
+        learned <hr> (horizontal rule) tag, creates horizontal line
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: gray;
+            font-family: 'Times New Roman', serif;
+        }
+        .pizza_border {
+            border-style:solid;
+            border-color: violet;
+            border-width: 20px;
+        }
+        .background_colour {
+            background: white;
+        }
+        .h2_margin {
+            margin: -10px 0px 10px 0px;
+        }
+        .steps {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Classic Pepperoni Recipe</h1>
+<img src="pizza.jpeg" class="pizza_border">
+<p>Quick, Easy and Delicious-Homemade pizza crust and tomato sauce has never been easier-and this recipe for pepperoni pizza produces a delicious classic! </p>
+<hr>
+<div id="ingrediants" >
+    <h2 style="color: red;">Ingrediants</h2>
+    <h3>Pizza Sauce</h3>
+    <div id="pizza_sauce" class="background_colour h2_margin">
+        <label for="paste">
+            <input id="paste" type="checkbox" name="ingrediants">tomato paste
+        </label>
+        <br>
+        <label for="oregano">
+            <input id="oregano" type="checkbox" name="ingrediants">1 teaspoon dried oregano, crushed
+        </label>
+        <br>
+        <label for="basil">
+            <input id="basil" type="checkbox" name="ingrediants">1 teaspoon dried basil, crushed 
+        </label>
+        <br>
+        <label for="garlic">
+            <input id="garlic" type="checkbox" name="ingrediants">½ teaspoon garlic powder 
+        </label>
+        <br>
+        <label for="onion">
+            <input id="onion" type="checkbox" name="ingrediants">½ teaspoon onion powder 
+        </label>
+        <br>
+        <label for="sugar">
+            <input id="sugar" type="checkbox" name="ingrediants">½ teaspoon sugar 
+        </label>
+        <br>
+        <label for="salt">
+            <input id="salt" type="checkbox" name="ingrediants">½ teaspoon salt 
+        </label>
+        <br>
+        <label for="pepper">
+            <input id="pepper" type="checkbox" name="ingrediants">¼ teaspoon black pepper 
+        </label>
+    </div>
+    <h3>Pizza Crust</h4>
+    <div id="pizza_crust" class="background_colour h2_margin">
+        <label for="flour">
+            <input id="flour" type="checkbox" name="crust">3 ¼ cups all-purpose flour, or more as needed
+        </label>
+        <br>
+        <label for="yeast">
+            <input id="yeast" type="checkbox" name="crust">2 (.25 ounce) envelopes FLEISCHMANN'S® Pizza Crust Yeast or RapidRise® Yeast 
+        </label>
+        <br>
+        <label for="sugar">
+            <input id="sugar" type="checkbox" name="crust">1 teaspoon sugar 
+        </label>
+        <br>
+        <label for="salt">
+            <input id="salt" type="checkbox" name="crust">1 ½ teaspoons salt 
+        </label>
+        <br>
+        <label for="water">
+            <input id="water" type="checkbox" name="crust">1 ⅓ cups very warm water 
+        </label>
+        <br>
+        <label for="oil">
+            <input id="oil" type="checkbox" name="crust">⅓ cup oil 
+        </label>
+    </div>
+    <h3>Toppings</h3>
+    <div id="pizza_toppings" class="background_colour h2_margin">
+        <label for="pep">
+            <input id="pep" type="checkbox" name="toppings">1 (6 ounce) package HORMEL® Pepperoni 
+        </label>
+        <br>
+        <label for="cheese">
+            <input id="cheese" type="checkbox" name="toppings">1 cup shredded mozzarella cheese, or more to taste 
+        </label>
+    </div>
+    <br>
+    <hr>
+</div>
+<h2 style="color: red;">Directions</h2>
+<div id="directions" class="background_colour">
+    <label for="step1" class="steps">
+        <input id="step1" type="checkbox" name="steps">Step 1
+    </label>
+    <p>For sauce: Combine all sauce ingredients with 1/2 cup water in a medium bowl; set aside for flavors to develop while making crust. Freeze remaining paste .</p>
+    <label for="step2" class="steps">
+        <input id="step2" type="checkbox" name="steps">Step 2
+    </label>
+    <p>For crusts: Combine 2 cups of flour with the dry yeast, sugar and salt. Add the water and oil and mix until well blended (about 1 minute). Gradually add enough remaining flour slowly, until a soft, sticky dough ball is formed.</p>
+    <label for="step3" class="steps">
+        <input id="step3" type="checkbox" name="steps">Step 3
+    </label>
+    <p>Knead for about 4 minutes, on a floured surface, until dough is smooth and elastic. Add more flour, if needed. (If using RapidRise® Yeast, let dough rest, covered, for 10 minutes.)</p>
+    <label for="step4" class="steps">
+        <input id="step4" type="checkbox" name="steps">Step 4
+    </label>
+    <p>Divide dough in half. Pat each half (with floured hands) into a 12-inch greased pizza pan OR roll dough to fit pans.</p>
+    <label for="step5" class="steps">
+        <input id="step5" type="checkbox" name="steps">Step 5
+    </label>
+    <p>For pizzas: Preheat oven to 425 degrees F. Top crusts with sauce, pepperoni and cheese.</p>
+    <label for="step6" class="steps">
+        <input id="step6" type="checkbox" name="steps">Step 6
+    </label>
+    <p>Bake for 18 to 20 minutes until crusts are browned and cheese is bubbly. For best results, rotate pizza pans between top and bottom oven racks halfway through baking.</p>
+</div>
+</body>
+</html>

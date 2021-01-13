@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!--
+Created 2021-01-07
+
+@Intro to CSS flexbox
+- UI has 2 components
+    1. visual elements like color, fonts, images
+    2. placement of elements
+
+flexbox are used to create page layouts for a dynamic UI
+
+@use 'display-flex' to position 2 boxes
+- adding 'display: flex;' on an element allows you to use flex properties to build responsive page
+
+@Use flex-direction property to make a row
+- adding 'display: flex' to an element turns it into a 'flex container'
+- makes it possible to align any children of that element into rows or column
+    - can do this by adding 'flex-direction' property to that parent item and setting it to 'row' or 'column'
+    - other options are 'row-reverse' and 'column-reverse'
+    - default setting for 'flex-direction' is row
+
+@Use flex-direction property to make a column
+- creates column by vertically stacking children of a flex container
+- 'flex-direction: column;'
+
+@Align elements using 'justify-content' property
+- common to want to tell CSS how to align and space out flex items in flex container
+- 'justify-content' property allows us to do that
+- the direction the flex items are arranged is called the 'main-axis'
+    - e.g when flex-direction: row;, main-axis is horizontal (vertical when flex-direction: column)
+
+    Options to space flex items
+    1. justify-content: center;
+    - alighsn all flex items to the center
+
+    2. justify-content: flex-start;
+    - aligns items to the start of the flex container
+    - for row this means left, for columns this means top
+
+    3. justify-content: flex-end
+    - oppositie of flex-start
+
+    4. justify-content: space-between
+    - aligns first and last items to the ends of the container, with everything else evenlly spaced
+
+    5. justify-content: space-around
+
+    6. justify-content: space-evenly
+
+@Align elements using align-items property
+- 'align-items' property aligns flex items along the cross axis (opposite of main-axis)
+    - if flex-direction: row, cross axis is vertical
+    - if flex-direction: column, cross axis is horizontal
+
+    different values include
+        align-items: flex-start;
+        align-items: flex-end;
+        align-items: center;
+        align-items: stretch;
+        align-items: baseline;
+
+@Use flex-wrap property to wrap a row or column
+- by default, a flex container will fit all flex items together
+- flex-wrap allows us to move extra items into a new row or column
+- depends on the size of items and the size of the container
+
+    1.flex-wrap: nowrap;
+        - default
+
+    2.flex-wrap: wrap;
+        - wrap items from L to R (if flex-direction: row) or T to B (if flex-direction: column)
+
+    3.flex-wrap: wrap-reverse;
+        - wrap items from R to L (if flex-direction: row) or B to T (if flex-direction: column)
+
+@Use the flex-shrink property to shrink items
+- several useful properties for flex items (within flex container)
+- 'flex-shrink' property allows an item to shrink if flex container is too small
+    - items shrink when the width of the parent container is smaller than the combined width of all the flex items within it
+    - flex-shrink takes numbers as values, higher the number, more it will shrink compared to other items in container
+    e.g. flex-shrink: 1 vs flex-shrink: 3 -> 3 will shrink 3x as much as 1
+
+@'flex-grow' property
+- opposite of flex-shrink property
+
+@'flex-basis' property
+- specifies intial size of item before CSS makes adjustments with flex-shrink, flex-grow
+- units used by flex-basis are (px, em, %, etc)
+- value 'auto' sizes items on the content
+
+@flex shortcut
+- 'flex' property allows us to set flew-grow, flew-shrink, flex-basis on one line
+e.g. flex: 1 0 10px will set
+    - flex-grow: 1;
+    - flex-shrink: 0;
+    - flex-basis: 10px;
+- default is flex: 0 1 auto;
+
+@'order' property
+- setting order property to rearrange items
+- takes integer values (includes negatives)
+- higher value goes after lower
+
+@'align-self' property ???
+- allows you to adjust each item's alignment individually
+-->
+</html>

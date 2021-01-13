@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Created on 2021-01-07
+
+Responsive web design is an approach to designing web content that responds to sizing of different devices
+If you expect most will be viewing from mobile, take a mobile first approach and add rules for larger screens
+
+@Create a media query
+- @media query changes the presentation of content based on different viewport sizes
+
+e.g media query that returns content when device's width is less than or equal to 100px
+@media (max-width: 100px) { /* CSS Rules */ }
+
+@Make an image responsive
+- 'max-width' property will make sure image is never wider than the container its in
+- 'height' property of auto will make the image keep its original aspect ratio
+
+<style>
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+
+}
+
+img {
+  width: 600px;
+}
+</style>
+
+<img class="responsive-img" src="https://s3.amazonaws.com/freecodecamp/FCCStickerPack.jpg" alt="freeCodeCamp stickers set">
+<img src="https://s3.amazonaws.com/freecodecamp/FCCStickerPack.jpg" alt="freeCodeCamp stickers set">
+
+@Use a retina image for higher resolution displays
+- Pixel density is an aspect that could be different on one device from another and this density
+- is known as pixel per inch (PPI) or dots per inch (DPI)
+e.g mac book pros have retina displays. due to diff in pixel density between retina and non-retina
+some images that have not been made with high rez in mind will look pixilated on retina models
+- simplest way to make images appear proper on high rez displays is to define 'width' and 'height' property values as
+- only half of what the original file is
+
+@Make typography responsive
+- instead of using em/px to size text, can use viewport units for responsive typography
+- like %, viewport units are relative units, but relative to 'viewport dimensions' of a device
+- whereas % are relative to size of the parent container element
+
+- 4 different viewport units are:
+    1. Viewport width '10vw' would be 10% of viewports width
+    2. vh (viewport height): 3vh would be 3% of the viewport's height.
+    3. vmin (viewport minimum): 70vmin would be 70% of the viewport's smaller dimension (height or width).
+    4. vmax (viewport maximum): 100vmax would be 100% of the viewport's bigger dimension (height or width).
+-->
+</html>

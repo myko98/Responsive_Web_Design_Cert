@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<!--
+Created 2020-01-02
+
+CSS Grid turns HTML element into a grid container with rows and columns for you to place children elements
+where you want within the grid
+
+@Create CSS grid
+- turn any HTML element into a grid container by setting 'display' property to grid
+'display: grid;'
+
+- in CSS grid, parent element is called the 'container' and its children are called 'items'
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    /* Only change code below this line */
+    display: grid;
+    
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+in this example, we create a div with the class="container", which has it's display set to grid
+all items within this div are it's children and can be manipulated with grid properties
+
+@Add columns and rows to grid
+- to add columns use
+'grid-template-columns: 50px 50px ...'
+    - number of inputs indicate number of columns and value of input indicates width of each column
+
+- to add rows use
+'grid-template-rows: 50px 50px ...'
+
+@Use CSS grid units to change size of columns and rows
+- can use absolute and relative units to define size of columns and rows
+    - 'px' and 'em'
+    - 'fr': sets column/row to a fraction of the available space
+    - 'auto' sets column/row to width or height of its content automatically
+    - '%' adjusts column/row to the % width of its container (parent)
+
+@Create a column gap using grid-column-gap
+- creates gap between the columns
+'grid-column-gap: 10px'
+
+@Create a row gap using grid-row-gap
+- creates gaps for the rows
+'grid-row-gap: 10px'
+
+@Add gaps faster with 'grid-gap'
+- combination of grid-column-gap and grid-row-gap
+- if only given one value then will set both column and row to that width
+- else give 2 inputs to first change row gap and then change column gap
+
+@Use grid-column or grid-row to control spacing
+- all properties above control the grid containers and not the grid items
+'grid-column: a / b;' controls how many columns an grid item consumes from line a to line b (horizontal)
+'grid-row: x / y;' controls how many rows a grid item consumes from line x to line y (vertical)
+
+@Align an item horizontally using 'justify-self'
+- content of each item is located in a box which is called a 'cell'
+- can align content's position within its cell horizontally using 'justify-self' property on the grid item
+- default value set to 'stretch' which takes entire width of the cell
+'justify-self: stretch;'
+    - other values include
+        - 'start' aligns to left
+        - 'end' aligns to right
+        - 'center' aligns to middle
+
+@Align an item vertically using align-self
+- same as above but aligns things vertically
+'align-self: stretch;'
+- also takes other values as well
+
+@Align all items horizontally using justify-items
+'justify-items: value;'
+- play this property in the comtainer class to apply input to all grid items
+
+@Align all items vertically suing align-items;
+'align-items: vallue;'
+- play this property in the comtainer class to apply input to all grid items
+
+@Divide a grid into an area template
+- can group cells of your grind together into an area and give the area a custom name
+- set 'grid-template-areas' property in container class to set names to each cell
+
+e.g. for a 3x3 column cell container
+
+grid-template-areas:
+  "header header header"
+  "advert content content"
+  "footer footer footer";
+
+merges top 3 cells together into an area named 'header', middle 3 to 'advert' and 'content',
+and bottom to 'footer'
+
+Note: Every word in the code represents a cell and every pair of quotation marks represent a row. In addition to custom labels, you can use a period (.) to designate an empty cell in the grid.
+
+@Place items in grid areas using the 'grid-area' property
+- within grid items by using 'grid-area' property can reference where you want to put items within container
+
+@Use 'grid-area' without creating an areas template
+- if grid container doesn't have an areas template, can create one on the fly by creating it within grid item
+
+e.g. item1 { grid-area: 1/1/2/4; }
+
+where input 1 and 2 are where area starts from and 3 and 4 are where area ends
+    - think 2 points covering an area
+    - grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;
+
+@Reduce repetition using the 'repeat' function
+- what if you wanted to created 100 columns and 100 rows? would you have to type 'grid-template-columns: 100px 100px ... 100px' 100 times?
+- ANSWER IS NO BY USING 'repeat' FUNCTION
+e.g. 
+'grid-template-rows: repeat(100, 50px)' will creat 100 row grids of 50 px
+
+- You can also repeat multiple values with the repeat function and insert the function amongst other values when defining a grid structure. Here's what that looks like:
+
+grid-template-columns: repeat(2, 1fr 50px) 20px;
+
+This translates to:
+
+grid-template-columns: 1fr 50px 1fr 50px 20px;
+
+Note: The 1fr 50px is repeated twice followed by 20px.
+
+@Limit item size using 'minmax()' function
+- minmax is used to limit size of items when the grid container changes size
+e.g
+
+grid-template-columns: 100px minmax(50px, 200px);
+In the code above, grid-template-columns is set to create two columns; the first is 100px wide, and the second has the minimum width of 50px and the maximum width of 200px.
+
+@Create flexible layouts using auto-fill
+'repeat' function comes with an option called 'auto-fill'
+- automatically inserts as many rows/columns depending on size of container
+- can create flexible layouts when combing auto-fill with minmax
+e.g
+
+repeat(auto-fill, minmax(60px, 1fr));
+
+When container changes size, keeps inserting 60px columns and stretching them until it can insert another one
+
+@Create flexible layouts using auto-fit
+auto-fit is almost like auto-fill
+- only diff is when container size exceeds the size of all items combined, auto-fill keeps inserting empty row/columns and pushes items to the side
+- while auto-fit collapses those empty rows and STRETCHES your items to fit the size of the container
+
+@Use media queries to create responsive layouts
+https://www.freecodecamp.org/learn/responsive-web-design/css-grid/use-media-queries-to-create-responsive-layouts
+
+@Create grids within grids
+https://www.freecodecamp.org/learn/responsive-web-design/css-grid/create-grids-within-grids
+-->
+</html>
